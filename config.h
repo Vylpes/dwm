@@ -64,16 +64,18 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static const char *lockcmd[] = { "slock", NULL };
+static const char *calcursecmd[] = { "alacritty", "-e", "calcurse", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	/* Custom Keys */
-	{ MODKEY|ShiftMask,		XK_b,	   spawn,	   {.v = browsercmd } },
-	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   {.v = screenshotcmd } },
+	{ MODKEY,			XK_f,	   spawn,	   {.v = browsercmd } },
+	{ MODKEY,			XK_s,	   spawn,	   {.v = screenshotcmd } },
 	{ MODKEY|ShiftMask,		XK_z,	   spawn,          {.v = lockcmd } },
+	{ MODKEY,			XK_t,      spawn,	   {.v = calcursecmd } },
 	/* Standard Keys */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_a,	   spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -84,9 +86,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	//{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	//{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	//{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
